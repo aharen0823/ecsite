@@ -1,0 +1,18 @@
+<!-- XMLファイルにアウトコメントを書くならこのような記述方法、　※//ではない -->>
+
+<!-- これは定型文なので一度作成すると使い回しできる -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- JavaファイルのMapperパッケージから指定してXMLとマッピング -->
+<mapper namespace="jp.co.internous.ecsite.model.mapper.TblPurchaseMapper">
+
+<!--insertでMapper.javaのどのメソッドから呼ばれるか指定する  -->
+  <insert id="insert" useGenerateKeys="true">
+  INSERT INTO tbl_purchase
+    (user_id,goods_id,goods_name,item_count,total,created_at)
+  VALUES
+    (#{userId},#{goodsId},#{goodsName},#{itemCount},#{total},now());
+  </insert>
+</mapper>
